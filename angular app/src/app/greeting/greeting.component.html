@@ -1,0 +1,20 @@
+
+<div class="container">
+<form [formGroup]="myform" (ngSubmit)="getMsg(myform.value, myform.valid)">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text"
+           class="form-control"
+           formControlName="name" 
+           [ngClass]="{
+            'has-danger': myform.controls.name.invalid && myform.controls.name.dirty, 
+            'has-success': myform.controls.name.valid && myform.controls.name.dirty 
+          }"
+           required>
+    <br>
+           <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+
+<p>{{ greetingMessage }}</p>
+</div>
